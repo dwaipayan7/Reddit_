@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/redit/redit.iml" filepath="$PROJECT_DIR$/redit/redit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redit/android/redit_android.iml" filepath="$PROJECT_DIR$/redit/android/redit_android.iml" />
+    </modules>
+  </component>
+</project>
