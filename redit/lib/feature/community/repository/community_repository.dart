@@ -15,7 +15,13 @@ class CommunityRepository{
   FutureVoid createCommunity(Community community) async{
     try{
 
+        var CommunityDoc = await _communities.doc(community.name).get();
 
+        if(CommunityDoc.exists){
+          throw Exception("Community with same name already exists");
+        }
+
+        return right(_communities.doc(community.name).set(community.toMap()));
 
     } on FirebaseException catch(e){
       throw e.message!;
