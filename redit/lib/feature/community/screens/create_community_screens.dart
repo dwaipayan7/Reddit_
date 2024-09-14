@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
+import 'package:redit/core/common/loader.dart';
+import 'package:redit/feature/community/controller/community_controller.dart';
 
 class CreateCommunityScreens extends ConsumerStatefulWidget {
   const CreateCommunityScreens({super.key});
@@ -19,14 +20,21 @@ final communityNameController = TextEditingController();
     super.dispose();
     communityNameController.dispose();
   }
+
+  void createCommunity(){
+    ref.read(communityControllerProvider.notifier).createCommunity(communityNameController.text.trim(), context);
+  }
   
   @override
   Widget build(BuildContext context) {
+  final isLoading = ref.watch(communityControllerProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Create A Community"),
       ),
-      body: Padding(
+      body: isLoading?
+      const Loader():
+      Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
@@ -45,7 +53,9 @@ final communityNameController = TextEditingController();
             ),
             SizedBox(height: 30,),
             ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  createCommunity();
+                },
                 child: Text('Create Community',),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
