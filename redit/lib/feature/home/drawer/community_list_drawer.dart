@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:redit/core/common/loader.dart';
 import 'package:redit/feature/community/controller/community_controller.dart';
 import 'package:redit/feature/community/screens/create_community_screens.dart';
+import 'package:redit/models/community.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../../../core/common/error_text.dart';
@@ -13,6 +14,11 @@ class CommunityListDrawer extends ConsumerWidget {
   // void navigateToCreateCommunity(BuildContext context){
   //   Routemaster.of(context).push('/create-community');
   // }
+
+
+  void navigateToCommunity(BuildContext context, Community community){
+    Routemaster.of(context).push('/r/${community.name}');
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +31,7 @@ class CommunityListDrawer extends ConsumerWidget {
                 leading: const Icon(Icons.add),
                 onTap: (){
                   // navigateToCreateCommunity(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateCommunityScreens()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CreateCommunityScreens()));
                 },
               ),
           ref.watch(userCommunitiesProvider).when(
@@ -40,7 +46,7 @@ class CommunityListDrawer extends ConsumerWidget {
                       ),
                       title: Text('r/${community.name}'),
                       onTap: (){
-                        
+                        navigateToCommunity(context, community);
                       },
                     );
               },
