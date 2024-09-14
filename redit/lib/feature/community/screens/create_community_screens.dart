@@ -46,13 +46,13 @@ final communityNameController = TextEditingController();
             SizedBox(height: 30,),
             ElevatedButton(
                 onPressed: (){},
-                child: Text('Create Community',style: TextStyle(color: Colors.white),),
+                child: Text('Create Community',),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)
-                )
+                // backgroundColor: Colors.blue,
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: BorderRadius.circular(20)
+                // )
               ),
             )
           ],
