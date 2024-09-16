@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:redit/core/common/loader.dart';
 import 'package:redit/feature/community/controller/community_controller.dart';
 
-class CreateCommunityScreens extends ConsumerStatefulWidget {
-  const CreateCommunityScreens({super.key});
+class CreateCommunityScreen extends ConsumerStatefulWidget {
+  const CreateCommunityScreen({super.key});
 
   @override
-  ConsumerState<CreateCommunityScreens> createState() => _CreateCommunityScreensState();
+  ConsumerState<CreateCommunityScreen> createState() => _CreateCommunityScreensState();
 }
 
-class _CreateCommunityScreensState extends ConsumerState<CreateCommunityScreens> {
+class _CreateCommunityScreensState extends ConsumerState<CreateCommunityScreen> {
   
 final communityNameController = TextEditingController();
 
